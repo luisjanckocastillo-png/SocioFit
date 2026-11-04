@@ -1,0 +1,19 @@
+{
+  "name": "SocioFit",
+  "short_name": "SocioFit",
+  "description": "Entrená con técnica, registrá tus sesiones y compartí constancia.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101510",
+  "theme_color": "#101510",
+  "icons": [
+    {
+      "src": "./icons/sociofit.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
