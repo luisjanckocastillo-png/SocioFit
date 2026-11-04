@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101510">
+  <meta name="description" content="SocioFit: entrená con técnica, registrá tus sesiones y compartí constancia con tus amigos.">
+  <title>SocioFit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.80.0"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <main id="auth-screen" class="auth-screen">
+    <div class="auth-brand"><span class="brand-mark">S</span><span>Socio<span class="accent">Fit</span></span></div>
+    <section class="auth-card">
+      <p class="eyebrow">ENTRENÁ A TU RITMO</p>
+      <h1>Tu progreso, <span class="accent">a tu manera.</span></h1>
+      <p class="muted">Ejercicios explicados, rutinas y seguimiento en un solo lugar.</p>
+      <form id="auth-form">
+        <label for="auth-name" id="name-label" hidden>Nombre para mostrar</label>
+        <input id="auth-name" type="text" placeholder="Cómo querés que te vean" autocomplete="nickname" hidden>
+        <label for="auth-email">Correo electrónico</label>
+        <input id="auth-email" type="email" placeholder="tu@email.com" autocomplete="email" required>
+        <label for="auth-password">Contraseña</label>
+        <input id="auth-password" type="password" placeholder="Mínimo 8 caracteres" autocomplete="current-password" minlength="8" required>
+        <button class="btn primary full" id="auth-submit" type="submit">Iniciar sesión</button>
+      </form>
+      <button class="text-button" id="auth-toggle" type="button">¿No tenés cuenta? Crear una</button>
+      <p class="tiny muted">Tus registros son privados. Compartís con tu grupo solo lo necesario para el ranking de constancia.</p>
+    </section>
+  </main>
+
+  <div id="app-shell" class="app-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="SocioFit inicio"><span class="brand-mark">S</span><span>Socio<span class="accent">Fit</span></span></a>
+      <nav id="side-nav" class="side-nav">
+        <button data-page="home" class="nav-item active"><span>⌂</span> Inicio</button>
+        <button data-page="exercises" class="nav-item"><span>▦</span> Ejercicios</button>
+        <button data-page="routines" class="nav-item"><span>▤</span> Mis rutinas</button>
+        <button data-page="log" class="nav-item"><span>＋</span> Registrar sesión</button>
+        <button data-page="progress" class="nav-item"><span>↗</span> Mi progreso</button>
+        <button data-page="community" class="nav-item"><span>◎</span> Amigos y ranking</button>
+        <button data-page="wellbeing" class="nav-item"><span>✳</span> Bienestar</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-mini"><div class="avatar" id="user-avatar">S</div><div><strong id="user-name">SocioFit</strong><small>Mi cuenta</small></div></div>
+        <button id="logout-btn" class="nav-item logout"><span>↪</span> Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button id="mobile-brand" class="brand compact"><span class="brand-mark">S</span><span>Socio<span class="accent">Fit</span></span></button>
+        <div class="topbar-right"><span class="status-dot"></span><span id="top-user">Cuenta activa</span><button id="mobile-logout" class="icon-button" aria-label="Cerrar sesión">↪</button></div>
+      </header>
+      <main id="page-content" class="page-content"></main>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <button data-page="home" class="active"><span>⌂</span><small>Inicio</small></button>
+      <button data-page="exercises"><span>▦</span><small>Ejercicios</small></button>
+      <button data-page="log"><span>＋</span><small>Registrar</small></button>
+      <button data-page="progress"><span>↗</span><small>Progreso</small></button>
+      <button data-page="community"><span>◎</span><small>Grupo</small></button>
+    </nav>
+  </div>
+  <div id="modal-root"></div>
+</body>
+</html>
